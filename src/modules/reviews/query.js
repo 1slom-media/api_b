@@ -47,7 +47,7 @@ const PUTREVIEWS = `
                 case 
                     when length($5) > 1 then $5
                     else o.description_en
-                end
+                end,
         r_name = 
                 case 
                     when length($6) > 1 then $6
