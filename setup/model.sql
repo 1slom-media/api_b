@@ -33,6 +33,7 @@ CREATE TABLE IF NOT EXISTS news(
 
 CREATE TABLE IF NOT EXISTS reviews(
     reviews_id serial PRIMARY KEY,
+    r_name varchar(50) not null,
     avatar_image varchar not null,
     description_uz text not null,
     description_ru text not null,

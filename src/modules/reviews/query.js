@@ -9,10 +9,10 @@ const GETREVIEWS = `
 const POSTREVIEWS =`
 insert into
     reviews(
-        avatar_image,description_uz,description_ru,description_en
+        avatar_image,description_uz,description_ru,description_en,r_name
     )
 values
-    ($1,$2,$3,$4) returning *
+    ($1,$2,$3,$4,$5) returning *
 `;
 
 const PUTREVIEWS = `
@@ -22,7 +22,8 @@ const PUTREVIEWS = `
             avatar_image,
             description_uz,
             description_ru,
-            description_en
+            description_en,
+            r_name
         from reviews
         where reviews_id = $1    
     ) update reviews as r
@@ -46,6 +47,11 @@ const PUTREVIEWS = `
                 case 
                     when length($5) > 1 then $5
                     else o.description_en
+                end
+        r_name = 
+                case 
+                    when length($6) > 1 then $6
+                    else o.r_name
                 end
     from old_reviews as o   
     where r.reviews_id = $1

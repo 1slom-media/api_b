@@ -15,17 +15,17 @@ const GET = async ({reviewsId=0}) => {
     }
 };
 
-const POST = async ({ avatar_image,description_uz,description_ru,description_en}) => {
+const POST = async ({ avatar_image,description_uz,description_ru,description_en,r_name}) => {
     try {
-      return await fetch(POSTREVIEWS, [ avatar_image,description_uz,description_ru,description_en]);
+      return await fetch(POSTREVIEWS, [ avatar_image,description_uz,description_ru,description_en,r_name]);
     } catch (error) {
         console.log(error);
     }
 };
 
-const PUT = async ({reviewsId},{avatar_image,description_uz,description_ru,description_en}) => {
+const PUT = async ({reviewsId},{avatar_image,description_uz,description_ru,description_en,r_name}) => {
     try {
-      return await fetch(PUTREVIEWS, [reviewsId,avatar_image,description_uz,description_ru,description_en]);
+      return await fetch(PUTREVIEWS, [reviewsId,avatar_image,description_uz,description_ru,description_en,r_name]);
     } catch (error) {
         console.log(error);
     }
