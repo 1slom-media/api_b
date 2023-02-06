@@ -9,10 +9,10 @@ const GETCONTACTS = `
 const POSTCONTACTS =`
 insert into
     contacts(
-        phone_number,room,kids,adults ,check_in,departure
+        phone_number,room,kids,adults ,check_in,departure,email
     )
 values
-    ($1,$2,$3,$4,$5,$6) returning *
+    ($1,$2,$3,$4,$5,$6,$7) returning *
 `;
 
 const PUTCONTACTS= `
@@ -24,7 +24,8 @@ const PUTCONTACTS= `
             kids,
             adults,
             check_in,
-            departure
+            departure,
+            email
         from contacts
         where contacts_id = $1    
     ) update contacts as c
@@ -58,6 +59,11 @@ const PUTCONTACTS= `
                 case 
                     when length($7) > 1 then $7
                     else o.departure
+                end,
+        email = 
+                case 
+                    when length($8) > 1 then $8
+                    else o.email
                 end
     from old_contacts as o   
     where c.contacts_id = $1

@@ -15,17 +15,17 @@ const GET = async ({contactsId=0}) => {
     }
 };
 
-const POST = async ({ phone_number,room,kids,adults ,check_in,departure}) => {
+const POST = async ({ phone_number,room,kids,adults ,check_in,departure,email}) => {
     try {
-      return await fetch(POSTCONTACTS, [ phone_number,room,kids,adults ,check_in,departure]);
+      return await fetch(POSTCONTACTS, [ phone_number,room,kids,adults ,check_in,departure,email]);
     } catch (error) {
         console.log(error);
     }
 };
 
-const PUT = async ({contactsId},{phone_number,room,kids,adults ,check_in,departure}) => {
+const PUT = async ({contactsId},{phone_number,room,kids,adults ,check_in,departure,email}) => {
     try {
-      return await fetch(PUTCONTACTS, [contactsId,phone_number,room,kids,adults ,check_in,departure]);
+      return await fetch(PUTCONTACTS, [contactsId,phone_number,room,kids,adults ,check_in,departure,email]);
     } catch (error) {
         console.log(error);
     }

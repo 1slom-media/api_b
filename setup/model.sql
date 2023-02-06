@@ -12,6 +12,9 @@ CREATE TABLE IF NOT EXISTS contacts(
     date timestamp default current_timestamp
 );
 
+ALTER TABLE contacts
+ADD COLUMN email varchar;
+
 CREATE TABLE IF NOT EXISTS form_contact(
     form_id serial PRIMARY KEY,
     email varchar not null,
